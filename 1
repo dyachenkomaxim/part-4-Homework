@@ -1,20 +1,20 @@
-//Создать класс Animal и расширяющие его классы Dog, Cat, Horse. +
-// Класс Animal содержит переменные food, location и методы makeNoise, eat, sleep.+
-// Метод makeNoise, например, может выводить на консоль "Такое-то животное спит".+
-// Dog, Cat, Horse переопределяют методы makeNoise, eat.+
-// Добавьте переменные в классы Dog, Cat, Horse, характеризующие только этих животных.
-// Создайте класс Ветеринар, в котором определите метод void treatAnimal(Animal animal).
-// Пусть этот метод распечатывает food и location пришедшего на прием животного.
-// В методе main создайте массив типа Animal, в который запишите животных всех имеющихся у вас типов.
-// В цикле отправляйте их на прием к ветеринару.
 class application{
     public static void main(String[] args){
-        Animal animal1 = new Animal();
-        //Animal [] zveri = new Animal[3];
-        //for(int i = 0; i < 3; i++){
+        Dog dog1 = new Dog("Chappi  ", "Doghouse" );
+        Cat cat1 = new Cat("Whiskas ",  "Window");
+        Hourse hourse1 = new Hourse("Hay ", "Рorse paddock");
+        
+        //Veterinar.treatAnimal(dog1);
+        Animal [] zveri = new Animal[3];
+        zveri[0] = dog1;
+        zveri[1] = cat1;
+        zveri[2] = hourse1;
+        for(int i = 0; i < 3; i++){
+            Veterinar.treatAnimal(zveri[i]);
         }
     }
 }
+
 class Animal {
     String food;
     String location;
@@ -26,9 +26,6 @@ class Animal {
         this.location = location;
     }
 
-    public Animal() {
-
-    }
 
     //методы
     void makeNoise(int q) {
@@ -68,61 +65,61 @@ class Animal {
         }
     }
 }
-    //расширяющие классы(наследуем параметры родителя и переопределяем его методы)
-    class Dog extends Animal {
-        int q = 1;
-        public Dog(String food, String location) {
-            super(food, location);
-        }
-        @Override
-        void eat(int q) {
-            super.eat(q);
-        }
-
-        @Override
-        void makeNoise(int q) {
-            super.makeNoise(q);
-        }
+//расширяющие классы(наследуем параметры родителя и переопределяем его методы)
+class Dog extends Animal {
+    int q = 1;
+    public Dog(String food, String location) {
+        super(food, location);
+    }
+    @Override
+    void eat(int q) {
+        super.eat(q);
     }
 
-    class Cat extends Animal {
-        int q = 2;
+    @Override
+    void makeNoise(int q) {
+        super.makeNoise(q);
+    }
+}
 
-        public Cat(String food, String location) {
-            super(food, location);
-        }
+class Cat extends Animal {
+    int q = 2;
 
-        @Override
-        void eat(int q) {
-            super.eat(q);
-        }
-
-        @Override
-        void makeNoise(int q) {
-            super.makeNoise(q);
-        }
+    public Cat(String food, String location) {
+        super(food, location);
     }
 
-    class Hourse extends Animal{
+    @Override
+    void eat(int q) {
+        super.eat(q);
+    }
+
+    @Override
+    void makeNoise(int q) {
+        super.makeNoise(q);
+    }
+}
+
+class Hourse extends Animal{
     int q = 3;
 
-        public Hourse(String food, String location) {
-            super(food, location);
-        }
-
-        @Override
-        void eat(int q) {
-            super.eat(q);
-        }
-
-        @Override
-        void makeNoise(int q) {
-            super.makeNoise(q);
-        }
+    public Hourse(String food, String location) {
+        super(food, location);
     }
 
+    @Override
+    void eat(int q) {
+        super.eat(q);
+    }
+
+    @Override
+    void makeNoise(int q) {
+        super.makeNoise(q);
+    }
+}
+
 class Veterinar{
-    void treatAnimal(String food, String location){
-        System.out.printf("ghbdtn");
+    static void treatAnimal(Animal animal){
+        System.out.printf(animal.food + " " + animal.location + "     ");
     }
 }
